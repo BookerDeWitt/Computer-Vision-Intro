@@ -55,7 +55,7 @@ A technical report on convolution arithmetic in the context of deep learning.
   </tr>
   <tr>
     <td><img src="gif/dilation.gif"></td>
-    <td></td>
+    <td><img src="pdf/numerical_max_pooling_00.pdf"></td>
     <td></td>
     <td></td>
   </tr>
