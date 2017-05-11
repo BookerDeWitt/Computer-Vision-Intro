@@ -117,3 +117,5 @@ $(document).ready(function(){
 <p>$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$</p>
 
 <img src="http://www.forkosh.com/mathtex.cgi? x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}">
+
+![equation](http://www.sciweavers.org/tex2img.php?eq=1%2Bsin%28mc%5E2%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
