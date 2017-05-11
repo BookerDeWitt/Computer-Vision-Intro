@@ -121,3 +121,8 @@ $(document).ready(function(){
 ![equation](http://www.sciweavers.org/tex2img.php?eq=1%2Bsin%28mc%5E2%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
 ![equation](http://mathurl.com/5euwuy.png)
 ![equation](http://www.sciweavers.org/upload/Tex2Img_1494508243/render.png)
+
+
+http://www.sciweavers.org/free-online-latex-equation-editor
+
+http://mathurl.com/
