@@ -111,7 +111,7 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
 | Caffe | type: "Deconvolution"| 
 | Pytorch | torch.nn.ConvTranspose2d(in_channels, out_channels, kernel_size, stride=1, padding=0, output_padding=0, groups=1, bias=True, dilation=1) | 
 
-卷积的逆过程，常用于将卷积层生成的特征图upsampling和decode，如下图所示。
+卷积层的逆操作，常用于将卷积层生成的特征图upsampling和decode，如下图所示。
 
 <p align="center"><img width="100%" src="pics/conv-deconv.png" /></p>
 
@@ -166,13 +166,17 @@ RoI Pooling层在论文[Fast R-CNN](http://www.cv-foundation.org/openaccess/cont
 - 将缩放后的ROI区域分割为设定好的区域块（如7×7）；
 - 对每个区域块内的特征值进行操作（一般是max pooling），并作为该区域块的最终输出。
 
-[RoI Pooling in Pytorch](https://discuss.pytorch.org/t/autograd-on-sampled-locations-on-feature-maps/1585/2)
+[Implementation: RoI Pooling in Pytorch](https://discuss.pytorch.org/t/autograd-on-sampled-locations-on-feature-maps/1585/2)
 
+## Max Unpooling Layer
+| Framework | Code | 
+| --- | --- | 
+| Caffe | no official implementation, [Third-Party](https://github.com/HyeonwooNoh)| 
+| Pytorch | torch.nn.MaxUnpool2d(kernel_size, stride=None, padding=0) | 
 
+Max Pooling层的逆操作，其与Deconvlution层的区别如下图所示，Pooling层的输出是稀疏（sparse）的，后面往往要跟Convolution层来使特征图稠密化（dense）。
 
-
-
-
+<p align="center"><img width="60%" src="pics/diff_unpooling.png" /></p>
 
 h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous()
 1111
