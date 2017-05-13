@@ -25,7 +25,7 @@ A technical report on convolution arithmetic in the context of deep learning.
 
 ## 2D Convolution
 
-<iframe src="https://cs231n.github.io/assets/conv-demo/index.html" width="100%" height="700px;" style="border:none;"></iframe>
+<p align="center"><img width="70%" src="gif/conv-layer-theory.gif" /></p>
 
 ### Convolution animations
 
