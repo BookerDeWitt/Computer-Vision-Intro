@@ -1,9 +1,17 @@
 # Common Layers in Deep Learning
-<font color=#0099ff size=7 face="黑体">color=#0099ff size=72 face="黑体"</font>
 | Framework | Python | 
 | --- | --- | 
-| <font color=blue>Caffe</font> | 2.7 | 
-| <font color=red>Pytorch</font> | 2.7 | 
+| Caffe | 2.7 | 
+| Pytorch | 2.7 | 
+
+## 全连接层
+**Caffe:**
+**Pythorch:**
+
+| Framework | Code | 
+| --- | --- | 
+| Caffe | InnerProduct| 
+| Pytorch | nn.Linear | 
 ## Convolution Layers
 
 A technical report on convolution arithmetic in the context of deep learning.
