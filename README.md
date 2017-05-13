@@ -10,8 +10,10 @@
 | Caffe | InnerProduct| 
 | Pytorch | nn.Linear | 
 
-<p align="center"><img width="50%" src="pics/fc.png" /></p>   
-**Pythorch:**    
+<p align="center"><img width="50%" src="pics/fc.png" /></p> 
+
+**Pythorch:**   
+
 ```
 fc1 = nn.Linear(3,4)
 fc2 = nn.Linear(4,1)
