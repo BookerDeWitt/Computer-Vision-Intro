@@ -7,7 +7,7 @@
 ## Fully Connected Layer 全连接层
 | Framework | Code | 
 | --- | --- | 
-| Caffe | InnerProduct| 
+| Caffe | type: "InnerProduct"| 
 | Pytorch | nn.Linear | 
 
 <p align="center"><img width="50%" src="pics/fc.png" /></p> 
@@ -21,9 +21,14 @@ fc2 = nn.Linear(4,1)
 
 ## Convolution Layers 卷积层
 
-A technical report on convolution arithmetic in the context of deep learning.
-
 ## 2D Convolution
+
+往往在以图像为输入的网络中使用
+
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "Convolution"| 
+| Pytorch | torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True) | 
 
 <p align="center"><img width="70%" src="gif/conv-layer-theory.gif" /></p>
 
