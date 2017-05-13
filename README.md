@@ -23,14 +23,12 @@ fc2 = nn.Linear(4,1)
 
 ### 2D Convolution
 
-往往在以图像为输入的网络中使用。
-
 | Framework | Code | 
 | --- | --- | 
 | Caffe | type: "Convolution"| 
 | Pytorch | torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True) | 
 
-
+往往在以图像为输入的网络中使用。
 
 #### 卷积原理
 
@@ -85,12 +83,12 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
 
 ### 3D Convolution
 
-往往在以视频流为输入的网络中使用。
-
 | Framework | Code | 
 | --- | --- | 
 | Caffe | type: "Convolution", | 
 | Pytorch | torch.nn.Conv3d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True) |
+
+往往在以视频流为输入的网络中使用。
 
 <p align="center"><img width="40%" src="pics/3Conv.png" /></p>
 
@@ -108,14 +106,16 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
 
 ## Deconvolution Layers 反卷积层
 
-卷积的逆过程。
-
 | Framework | Code | 
 | --- | --- | 
 | Caffe | type: "Deconvolution"| 
 | Pytorch | torch.nn.ConvTranspose2d(in_channels, out_channels, kernel_size, stride=1, padding=0, output_padding=0, groups=1, bias=True, dilation=1) | 
 
-#### 卷积层中stride, padding, dilation参数意义：
+卷积的逆过程，常用于将卷积层生成的特征图upsampling和decode，如下图所示。
+
+<p align="center"><img width="100%" src="pics/conv-deconv.png" /></p>
+
+#### 反卷积层中stride, padding参数意义：
 
 <table style="width:100%">
   <tr>
