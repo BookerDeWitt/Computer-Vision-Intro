@@ -6,6 +6,7 @@
 
 ## Fully Connected Layer 全连接层
 | Framework | Code | 
+| --- | --- | 
 | Caffe | InnerProduct| 
 | Pytorch | nn.Linear | 
 
@@ -18,10 +19,13 @@ fc1 = nn.Linear(3,4)
 fc2 = nn.Linear(4,1)
 ```
 
-## Convolution Layers
+## Convolution Layers 卷积层
 
 A technical report on convolution arithmetic in the context of deep learning.
-<p align="center"><img width="40%" src="pics/numerical_max_pooling_00.jpg" /></p>
+
+## 2D Convolution
+
+<iframe src="https://cs231n.github.io/assets/conv-demo/index.html" width="100%" height="700px;" style="border:none;"></iframe>
 
 ### Convolution animations
 
@@ -88,48 +92,15 @@ A technical report on convolution arithmetic in the context of deep learning.
   </tr>
 </table>
 
-### Generating the Makefile
 
-From the repository's root directory:
+<p align="center"><img width="40%" src="pics/numerical_max_pooling_00.jpg" /></p>
 
-``` bash
-$ ./bin/generate_makefile
-```
-### Generating the animations
 
-From the repository's root directory:
 
-``` bash
-$ make all_animations
-```
-
-The animations will be output to the `gif` directory. Individual animation steps
-will be output in PDF format to the `pdf` directory and in PNG format to the
-`png` directory.
-
-### Compiling the document
-
-From the repository's root directory:
-
-``` bash
-$ make
-```
 h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous()
 1111
 
-<script type="text/javascript">
-$(document).ready(function(){
-  $("code").map(function(){
-    match = /^\$(.*)\$$/.exec($(this).html());
-    if (match){
-      //$(this).after("<span class=mathjax_inline>" + match + "</span>");
-      //$(this).hide();
-      $(this).replaceWith("<span class=hpl_mathjax_inline>" + $(this).html() + "</span>");
-      MathJax.Hub.Queue(["Typeset",MathJax.Hub,$(this).get(0)]);
-    }
-  });
-});
-</script>
+
 
 <script type="text/javascript"
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
