@@ -1,7 +1,7 @@
 # Convolution arithmetic
 
 A technical report on convolution arithmetic in the context of deep learning.
-
+<img src="pics/numerical_max_pooling_00.jpg">
 ## Convolution animations
 
 <table style="width:100%">
@@ -55,7 +55,7 @@ A technical report on convolution arithmetic in the context of deep learning.
   </tr>
   <tr>
     <td><img src="gif/dilation.gif"></td>
-    <td><img src="pics/numerical_max_pooling_00.jpg"></td>
+    <td></td>
     <td></td>
     <td></td>
   </tr>
