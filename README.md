@@ -93,7 +93,7 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
 <p align="center"><img width="40%" src="pics/3Conv.png" /></p>
 
 ```
-3DConv1 = nn.Conv3d(1, n1, kernel_size=(d0, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+3DConv1 = nn.Conv3d( 1, n1, kernel_size=(d0, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
 3DConv2 = nn.Conv3d(n1, n2, kernel_size=(d0, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
 3DConv3 = nn.Conv3d(n2, n3, kernel_size=(d0, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
 3DConv4 = nn.Conv3d(n3, n4, kernel_size=(d0, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
@@ -101,7 +101,7 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
 
 每个channel间参数不同，但每个channel内的视频流共享参数，如下图所示。
 
-<p align="center"><img width="40%" src="pics/3Conv-share.png" /></p>
+<p align="center"><img width="70%" src="pics/3Conv-share.png" /></p>
 
 
 ## Deconvolution Layers 反卷积层
@@ -151,7 +151,7 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
 | Caffe | type: "Pooling" pool: MAX| 
 | Pytorch | torch.nn.MaxPool2d(kernel_size, stride=None, padding=0, dilation=1, return_indices=False, ceil_mode=False) | 
 
-<p align="center"><img width="70%" src="pics/numerical_max_pooling.jpg" /></p>
+<p align="center"><img width="70%" src="pics/numerical_max_pooling.png" /></p>
 
 ```
 Pool1 = nn.MaxPool2d(3, 1, padding=0)
