@@ -190,7 +190,6 @@ Max Pooling层的逆操作，其与Deconvlution层的区别如下图所示，Poo
 <p align="center"><img width="50%" src="pics/diff_unpooling.PNG" /></p>
 
 ## Softmax Layer
-
 | Framework | Code | 
 | --- | --- | 
 | Caffe | type: "Softmax"| 
@@ -200,19 +199,24 @@ softmax用于多分类问题，比如0-9的数字识别，共有10个输出，�
 
 <p align="center"><img width="50%" src="pics/softmax.png" /></p>
 
-softmax层往往用于多分类问题的最终输出层，如下图所示
+softmax层往往用于多分类问题的最终输出层，用来输出各类的概率，如下图所示：
 
 <p align="center"><img width="50%" src="pics/softmax-in-net.png" /></p>
 
+## Crop Layer
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "Crop"| 
+| Pytorch | Tensor.contiguous() | 
 
+将特征图尺寸剪裁到与参考特征图同样大小，caffe中可以使用专门的Crop层，Pytorch中直接对要剪裁的特征图tensor进行维度操作即可。
 
+```
+h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous() #x.size[2], x.size[3] 分别为参考特征图的高和宽
+```
 
+## Concatenate Layer
 
-
-
-
-h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous()
-1111
 
 
 
