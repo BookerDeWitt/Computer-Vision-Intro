@@ -169,6 +169,7 @@ RoI Pooling层在论文[Fast R-CNN](http://www.cv-foundation.org/openaccess/cont
 [Implementation: RoI Pooling in Pytorch](https://discuss.pytorch.org/t/autograd-on-sampled-locations-on-feature-maps/1585/2)
 
 ## Max Unpooling Layer
+
 | Framework | Code | 
 | --- | --- | 
 | Caffe | no official implementation, [Third-Party](https://github.com/HyeonwooNoh)| 
@@ -176,7 +177,7 @@ RoI Pooling层在论文[Fast R-CNN](http://www.cv-foundation.org/openaccess/cont
 
 Max Pooling层的逆操作，其与Deconvlution层的区别如下图所示，Pooling层的输出是稀疏（sparse）的，后面往往要跟Convolution层来使特征图稠密化（dense）。
 
-<p align="center"><img width="60%" src="pics/diff_unpooling.png" /></p>
+<p align="center"><img width="60%" src="pics/diff_unpooling.PNG" /></p>
 
 h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous()
 1111
