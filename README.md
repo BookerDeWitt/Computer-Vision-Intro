@@ -4,9 +4,8 @@
 | Caffe | 2.7 | 
 | Pytorch | 2.7 | 
 
-## 全连接层
+## Fully Connected Layer 全连接层
 | Framework | Code | 
-| --- | --- | 
 | Caffe | InnerProduct| 
 | Pytorch | nn.Linear | 
 
