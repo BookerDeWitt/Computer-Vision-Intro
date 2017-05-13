@@ -18,10 +18,12 @@ nn.Linear
 | --- | --- | 
 | Caffe | InnerProduct| 
 | Pytorch | nn.Linear | 
+
 ## Convolution Layers
 
 A technical report on convolution arithmetic in the context of deep learning.
 <p align="center"><img width="40%" src="pics/numerical_max_pooling_00.jpg" /></p>
+
 ### Convolution animations
 
 <table style="width:100%">
