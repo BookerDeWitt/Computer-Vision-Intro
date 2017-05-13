@@ -62,13 +62,9 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
     <td></td>
   </tr>
   <tr>
-    <td>No padding,
-    
-    strides=(2, 2)</td>
-    <td>Padding=(1, 1), strides=(2, 2)</td>
-    <td>Padding=(1, 1),
-    
-    strides=(2, 2) (odd)</td>
+    <td>No padding, strides = 2</td>
+    <td>Padding = 1, strides = 2</td>
+    <td>Padding = 1, strides = 2 (odd)</td>
     <td></td>
   </tr>
   <tr>
@@ -78,7 +74,7 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
     <td></td>
   </tr>
   <tr>
-    <td>No padding, no stride, dilation = (2, 2)</td>
+    <td>No padding, no stride, dilation = 2</td>
     <td></td>
     <td></td>
     <td></td>
