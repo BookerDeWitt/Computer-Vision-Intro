@@ -5,19 +5,17 @@
 | Pytorch | 2.7 | 
 
 ## 全连接层
-**Caffe:**
-```
-InnerProduct
-```
-**Pythorch:**
-```
-nn.Linear
-```
-
 | Framework | Code | 
 | --- | --- | 
 | Caffe | InnerProduct| 
 | Pytorch | nn.Linear | 
+
+<p align="center"><img width="100%" src="pics/fc.png" /></p>   
+**Pythorch:**
+```
+fc1 = nn.Linear(3,4)
+fc2 = nn.Linear(4,1)
+```
 
 ## Convolution Layers
 
