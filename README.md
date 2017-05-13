@@ -4,6 +4,8 @@
 | Caffe | 2.7 | 
 | Pytorch | 2.7 | 
 
+
+
 ## Fully Connected Layer 全连接层
 | Framework | Code | 
 | --- | --- | 
@@ -16,6 +18,8 @@
 fc1 = nn.Linear(3,4)
 fc2 = nn.Linear(4,1)
 ```
+
+
 
 ## Convolution Layers 卷积层
 
@@ -30,7 +34,7 @@ fc2 = nn.Linear(4,1)
 
 
 
-**卷积原理**
+#### 卷积原理
 
 当卷积层的输入维度(Channel)大于1时：
 
@@ -40,7 +44,7 @@ fc2 = nn.Linear(4,1)
 Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilation=1)
 ```
 
-卷积层中stride, padding, dilation参数意义：
+#### 卷积层中stride, padding, dilation参数意义：
 
 <table style="width:100%">
   <tr>
