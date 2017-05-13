@@ -5,11 +5,14 @@
 | Pytorch | 2.7 | 
 
 ## 全连接层
+**Caffe:**
 ```
-**Caffe:**InnerProduct
+InnerProduct
+```
 **Pythorch:**nn.Linear
 ```
-
+nn.Linear
+```
 
 | Framework | Code | 
 | --- | --- | 
