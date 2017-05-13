@@ -157,15 +157,14 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
 Pool1 = nn.MaxPool2d(3, 1, padding=0)
 ```
 
-##RoI Pooling Layer
+## RoI Pooling Layer
 
-<p align="center"><img width="70%" src="pics/roipooling1.png" /></p>
+<p align="center"><img width="60%" src="pics/roipooling1.png" /></p>
 
-RoI Pooling层在论文[Fast R-CNN](http://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Girshick_Fast_R-CNN_ICCV_2015_paper.pdf)中被提出，主要用于将大小不同的Proposal框提取为大小相同的特征图，其主要过程为：
--
--
--
-
+RoI Pooling层在论文[Fast R-CNN](http://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Girshick_Fast_R-CNN_ICCV_2015_paper.pdf)中被提出，主要用于为大小不同的RoI(Region of Interest)区域提取大小相同的特征图，其主要过程为：
+- 将RoI区域的坐标缩放到与特征图同一尺度，并对缩放后的坐标取整；
+- 将缩放后的ROI区域分割为设定好的区域块（如7×7）；
+- 对每个区域块内的特征值进行操作（一般是max pooling），并作为该区域块的最终输出。
 
 [RoI Pooling in Pytorch](https://discuss.pytorch.org/t/autograd-on-sampled-locations-on-feature-maps/1585/2)
 
