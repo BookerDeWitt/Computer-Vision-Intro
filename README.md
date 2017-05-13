@@ -5,7 +5,6 @@
 | Pytorch | 2.7 | 
 
 
-
 ## Fully Connected Layer 全连接层
 | Framework | Code | 
 | --- | --- | 
@@ -20,12 +19,11 @@ fc2 = nn.Linear(4,1)
 ```
 
 
-
 ## Convolution Layers 卷积层
 
 ### 2D Convolution
 
-往往在以图像为输入的网络中使用
+往往在以图像为输入的网络中使用。
 
 | Framework | Code | 
 | --- | --- | 
@@ -109,8 +107,41 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
   </tr>
 </table>
 
+### 3D Convolution
 
-<p align="center"><img width="40%" src="pics/numerical_max_pooling_00.jpg" /></p>
+往往在以视频流为输入的网络中使用。
+
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "Convolution", | 
+| Pytorch | torch.nn.Conv3d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True) |
+
+<p align="center"><img width="40%" src="3Conv-share.png" /></p>
+
+```
+3DConv1 = nn.Conv3d(1, n1, kernel_size=(d0, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+3DConv2 = nn.Conv3d(n1, n2, kernel_size=(d0, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+3DConv3 = nn.Conv3d(n2, n3, kernel_size=(d0, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+3DConv4 = nn.Conv3d(n3, n4, kernel_size=(d0, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+```
+
+每个channel间参数不同，但每个channel内的视频流共享参数，如下图所示。
+
+<p align="center"><img width="40%" src="pics/3Conv-share.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
