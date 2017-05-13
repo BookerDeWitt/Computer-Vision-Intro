@@ -189,6 +189,56 @@ Max Pooling层的逆操作，其与Deconvlution层的区别如下图所示，Poo
 
 <p align="center"><img width="50%" src="pics/diff_unpooling.PNG" /></p>
 
+## Crop Layer
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "Crop"| 
+| Pytorch | Tensor.contiguous() | 
+
+将特征图尺寸剪裁到与参考特征图同样大小，caffe中可以使用专门的Crop层，Pytorch中直接对要剪裁的特征图tensor进行维度操作即可。
+
+```
+h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous() #x.size[2], x.size[3] 分别为参考特征图的高和宽
+```
+
+## Concatenate Layer
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "Concat"| 
+| Pytorch | torch.cat(seq, dim=0)| 
+
+将同样大小的特征图拼接在一起，形成新的维度。
+<p align="center"><img width="50%" src="pics/Concatenate-layer.png" /></p>
+
+## Batch Normalization Layer
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "BatchNorm" and type: "Scale"| 
+| Pytorch | torch.nn.BatchNorm2d(num_features, eps=1e-05, momentum=0.1, affine=True)| 
+
+Batch Normalization解决的是[Internal Covariate Shift](https://arxiv.org/abs/1502.03167)问题，即由于每一层的参数都在不断变化，所以输出的分布也会不断变化，造成梯度需要不断适应新的数据分布。所以，每一个mini batch里，对每个维度进行归一化:
+
+![equation](http://www.sciweavers.org/upload/Tex2Img_1494672210/render.png)
+
+上式中的γ和β为可学习参数。
+
+## Reshape Layer
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "Reshape"| 
+| Pytorch | torch.view, nn.PixelShuffle | 
+
+在不改变特征数值和特征总量的情况下改变特征图的形状：
+
+<p align="center"><img width="50%" src="pics/reshape-layer.png" /></p>
+
+```
+x = torch.randn(L*r*r, h, w)
+y = x.view(L, r*h, r*w)
+or
+nn.PixelShuffle(r)
+```
+
 ## Softmax Layer
 | Framework | Code | 
 | --- | --- | 
@@ -203,33 +253,12 @@ softmax层往往用于多分类问题的最终输出层，用来输出各类的�
 
 <p align="center"><img width="50%" src="pics/softmax-in-net.png" /></p>
 
-## Crop Layer
-| Framework | Code | 
-| --- | --- | 
-| Caffe | type: "Crop"| 
-| Pytorch | Tensor.contiguous() | 
 
-将特征图尺寸剪裁到与参考特征图同样大小，caffe中可以使用专门的Crop层，Pytorch中直接对要剪裁的特征图tensor进行维度操作即可。
-
-```
-h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous() #x.size[2], x.size[3] 分别为参考特征图的高和宽
-```
-
-## Concatenate Layer
-
-
-
-
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-<p>$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$</p>
-
-<img src="http://www.forkosh.com/mathtex.cgi? x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}">
 
 ![equation](http://www.sciweavers.org/tex2img.php?eq=1%2Bsin%28mc%5E2%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
+
 ![equation](http://mathurl.com/5euwuy.png)
+
 ![equation](http://www.sciweavers.org/upload/Tex2Img_1494508243/render.png)
 
 
