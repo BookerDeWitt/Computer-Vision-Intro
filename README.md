@@ -12,8 +12,6 @@
 
 <p align="center"><img width="50%" src="pics/fc.png" /></p> 
 
-**Pythorch:**   
-
 ```
 fc1 = nn.Linear(3,4)
 fc2 = nn.Linear(4,1)
@@ -37,8 +35,6 @@ fc2 = nn.Linear(4,1)
 当卷积层的输入维度(Channel)大于1时：
 
 <p align="center"><img width="70%" src="gif/conv-layer-theory.gif" /></p>
-
-**Pythorch:**   
 
 ```
 Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilation=1)
