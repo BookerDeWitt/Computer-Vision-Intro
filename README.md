@@ -8,7 +8,7 @@
 | Framework | Code | 
 | --- | --- | 
 | Caffe | type: "InnerProduct"| 
-| Pytorch | nn.Linear | 
+| Pytorch | torch.nn.Linear(in_features, out_features, bias=True) | 
 
 <p align="center"><img width="50%" src="pics/fc.png" /></p> 
 
@@ -21,7 +21,7 @@ fc2 = nn.Linear(4,1)
 
 ## Convolution Layers 卷积层
 
-## 2D Convolution
+### 2D Convolution
 
 往往在以图像为输入的网络中使用
 
@@ -30,9 +30,21 @@ fc2 = nn.Linear(4,1)
 | Caffe | type: "Convolution"| 
 | Pytorch | torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True) | 
 
+
+
+**卷积原理**
+
+当卷积层的输入维度(Channel)大于1时：
+
 <p align="center"><img width="70%" src="gif/conv-layer-theory.gif" /></p>
 
-### Convolution animations
+**Pythorch:**   
+
+```
+Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilation=1)
+```
+
+卷积层中stride, padding, dilation参数意义：
 
 <table style="width:100%">
   <tr>
