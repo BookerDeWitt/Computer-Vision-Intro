@@ -115,7 +115,7 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
 
 <p align="center"><img width="100%" src="pics/conv-deconv.png" /></p>
 
-#### 反卷积层中stride, padding参数意义：
+#### 反卷积层中stride, padding, dilation参数意义：
 
 <table style="width:100%">
   <tr>
@@ -144,11 +144,22 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
   </tr>
 </table>
 
+## Max Pooling Layers 池化层
 
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "Pooling" pool: MAX| 
+| Pytorch | torch.nn.MaxPool2d(kernel_size, stride=None, padding=0, dilation=1, return_indices=False, ceil_mode=False) | 
 
+<p align="center"><img width="40%" src="pics/conv-deconv.png" /></p>
 
-
-
+<table style="width:100%">
+  <tr>
+    <td><img width="40%" src="pics/numerical_max_pooling_00.jpg"></td>
+    <td><img width="40%" src="pics/numerical_max_pooling_04.jpg"></td>
+    <td><img width="40%" src="pics/numerical_max_pooling_08.jpg"></td>
+  </tr>
+</table>
 
 
 
