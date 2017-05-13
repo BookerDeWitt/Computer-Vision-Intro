@@ -58,18 +58,6 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
     <td>Full padding, no strides</td>
   </tr>
   <tr>
-    <td><img src="gif/no_padding_no_strides_transposed.gif"></td>
-    <td><img src="gif/arbitrary_padding_no_strides_transposed.gif"></td>
-    <td><img src="gif/same_padding_no_strides_transposed.gif"></td>
-    <td><img src="gif/full_padding_no_strides_transposed.gif"></td>
-  </tr>
-  <tr>
-    <td>No padding, no strides, transposed</td>
-    <td>Arbitrary padding, no strides, transposed</td>
-    <td>Half padding, no strides, transposed</td>
-    <td>Full padding, no strides, transposed</td>
-  </tr>
-  <tr>
     <td><img src="gif/no_padding_strides.gif"></td>
     <td><img src="gif/padding_strides.gif"></td>
     <td><img src="gif/padding_strides_odd.gif"></td>
@@ -79,18 +67,6 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
     <td>No padding, strides</td>
     <td>Padding, strides</td>
     <td>Padding, strides (odd)</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><img src="gif/no_padding_strides_transposed.gif"></td>
-    <td><img src="gif/padding_strides_transposed.gif"></td>
-    <td><img src="gif/padding_strides_odd_transposed.gif"></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>No padding, strides, transposed</td>
-    <td>Padding, strides, transposed</td>
-    <td>Padding, strides, transposed (odd)</td>
     <td></td>
   </tr>
   <tr>
@@ -116,7 +92,7 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
 | Caffe | type: "Convolution", | 
 | Pytorch | torch.nn.Conv3d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True) |
 
-<p align="center"><img width="40%" src="3Conv-share.png" /></p>
+<p align="center"><img width="40%" src="pics/3Conv.png" /></p>
 
 ```
 3DConv1 = nn.Conv3d(1, n1, kernel_size=(d0, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
@@ -130,9 +106,43 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
 <p align="center"><img width="40%" src="pics/3Conv-share.png" /></p>
 
 
+## Deconvolution Layers 反卷积层
 
+卷积的逆过程。
 
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "Deconvolution"| 
+| Pytorch | torch.nn.ConvTranspose2d(in_channels, out_channels, kernel_size, stride=1, padding=0, output_padding=0, groups=1, bias=True, dilation=1) | 
 
+#### 卷积层中stride, padding, dilation参数意义：
+
+<table style="width:100%">
+  <tr>
+    <td><img src="gif/no_padding_no_strides_transposed.gif"></td>
+    <td><img src="gif/arbitrary_padding_no_strides_transposed.gif"></td>
+    <td><img src="gif/same_padding_no_strides_transposed.gif"></td>
+    <td><img src="gif/full_padding_no_strides_transposed.gif"></td>
+  </tr>
+  <tr>
+    <td>No padding, no strides, transposed</td>
+    <td>Arbitrary padding, no strides, transposed</td>
+    <td>Half padding, no strides, transposed</td>
+    <td>Full padding, no strides, transposed</td>
+  </tr>
+  <tr>
+    <td><img src="gif/no_padding_strides_transposed.gif"></td>
+    <td><img src="gif/padding_strides_transposed.gif"></td>
+    <td><img src="gif/padding_strides_odd_transposed.gif"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>No padding, strides, transposed</td>
+    <td>Padding, strides, transposed</td>
+    <td>Padding, strides, transposed (odd)</td>
+    <td></td>
+  </tr>
+</table>
 
 
 
