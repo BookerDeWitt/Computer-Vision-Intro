@@ -18,6 +18,16 @@ fc1 = nn.Linear(3,4)
 fc2 = nn.Linear(4,1)
 ```
 
+## Dropout Layer
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "Dropout"| 
+| Pytorch | torch.nn.Dropout2d(p=0.5, inplace=False) | 
+
+一种防止训练时过拟合的方法，在模型训练时随机让网络某些隐含层节点的权重不工作。
+
+<p align="center"><img width="50%" src="pics/Dropout.png" /></p> 
+
 
 ## Convolution Layer 卷积层
 
@@ -177,7 +187,29 @@ RoI Pooling层在论文[Fast R-CNN](http://www.cv-foundation.org/openaccess/cont
 
 Max Pooling层的逆操作，其与Deconvlution层的区别如下图所示，Pooling层的输出是稀疏（sparse）的，后面往往要跟Convolution层来使特征图稠密化（dense）。
 
-<p align="center"><img width="60%" src="pics/diff_unpooling.PNG" /></p>
+<p align="center"><img width="50%" src="pics/diff_unpooling.PNG" /></p>
+
+## Softmax Layer
+
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "Softmax"| 
+| Pytorch | torch.nn.Softmax | 
+
+softmax用于多分类问题，比如0-9的数字识别，共有10个输出，而且这10个输出的概率和加起来应该为1，所以可以用一个softmax操作归一化这10个输出。进一步一般化，假如共有k个输出，softmax的假设可以形式化表示为：
+
+<p align="center"><img width="50%" src="pics/softmax.png" /></p>
+
+softmax层往往用于多分类问题的最终输出层，如下图所示
+
+<p align="center"><img width="50%" src="pics/softmax-in-net.png" /></p>
+
+
+
+
+
+
+
 
 h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous()
 1111
