@@ -9,7 +9,7 @@
 ```
 InnerProduct
 ```
-**Pythorch:**nn.Linear
+**Pythorch:**
 ```
 nn.Linear
 ```
