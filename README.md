@@ -2,8 +2,8 @@
 
 | Framework | Python | 
 | --- | --- | 
-| Caffe | 2.7 | 
-| Pytorch | 2.7 | 
+| <font color=blue>Caffe</font> | 2.7 | 
+| <font color=red>Pytorch</font> | 2.7 | 
 ## Convolution Layers
 
 A technical report on convolution arithmetic in the context of deep learning.
