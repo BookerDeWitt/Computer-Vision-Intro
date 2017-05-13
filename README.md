@@ -62,9 +62,9 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
     <td></td>
   </tr>
   <tr>
-    <td>No padding, strides</td>
-    <td>Padding, strides</td>
-    <td>Padding, strides (odd)</td>
+    <td>No padding, strides=(2, 2)</td>
+    <td>Padding=(1, 1), strides=(2, 2)</td>
+    <td>Padding=(1, 1), strides=(2, 2) (odd)</td>
     <td></td>
   </tr>
   <tr>
@@ -74,7 +74,7 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
     <td></td>
   </tr>
   <tr>
-    <td>No padding, no stride, dilation</td>
+    <td>No padding, no stride, dilation = (2, 2)</td>
     <td></td>
     <td></td>
     <td></td>
@@ -115,7 +115,7 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
 
 <p align="center"><img width="100%" src="pics/conv-deconv.png" /></p>
 
-#### 反卷积层中stride, padding, dilation参数意义：
+#### 反卷积层中stride, padding参数意义：
 
 <table style="width:100%">
   <tr>
