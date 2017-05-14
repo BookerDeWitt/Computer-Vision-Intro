@@ -195,7 +195,7 @@ Max Pooling层的逆操作，其与Deconvlution层的区别如下图所示，Poo
 | Caffe | type: "Crop"| 
 | Pytorch | Tensor.contiguous() | 
 
-将特征图尺寸剪裁到与参考特征图同样大小，该层在FCN中多次出现，用来解决输入图像大小不一致的问题。caffe中可以使用专门的Crop层，Pytorch中直接对要剪裁的特征图tensor进行维度操作即可。
+Crop层功能如上图所示，输入为待剪裁特征图A，以及参考特征图B（需满足A尺寸大于B）。Crop层的输出特征图A1由输入A剪裁而来，其大小与B一致，剪裁的偏移量由设置决定。该层在FCN中多次出现，用来解决输入图像大小不一致的问题。caffe中可以使用专门的Crop层，Pytorch中直接对要剪裁的特征图tensor进行维度操作即可。
 
 ```
 h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous() #x.size[2], x.size[3] 分别为参考特征图的高和宽
@@ -238,7 +238,6 @@ y = x.view(L, r*h, r*w)
 or
 nn.PixelShuffle(r)
 ```
-
 ## Softmax Layer
 | Framework | Code | 
 | --- | --- | 
@@ -253,8 +252,20 @@ softmax层往往用于多分类问题的最终输出层，用来输出各类的�
 
 <p align="center"><img width="50%" src="pics/softmax-in-net.png" /></p>
 
+## Loss Function Layer 损失函数层
 
+用来定义训练过程中的网络输出与真值不一致程度的函数。
 
+### SoftmaxWithLoss Layer
+class torch.nn.LogSoftmax + NLLLoss
+
+### CrossEntropyLoss Layer
+
+#### Multi-Class
+
+#### Binary-Class
+
+#### Common
 
 ![equation](http://www.sciweavers.org/upload/Tex2Img_1494773148/eqn.png)
 ![equation](http://mathurl.com/5euwuy.png)
