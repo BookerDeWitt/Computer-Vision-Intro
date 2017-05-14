@@ -256,10 +256,9 @@ softmax层往往用于多分类问题的最终输出层，用来输出各类的�
 
 
 ![equation](http://www.sciweavers.org/tex2img.php?eq=1%2Bsin%28mc%5E2%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
-
+![equation](http://www.sciweavers.org/upload/Tex2Img_1494772530/eqn.png)
 ![equation](http://mathurl.com/5euwuy.png)
 
-![equation](http://www.sciweavers.org/upload/Tex2Img_1494508243/render.png)
 
 
 http://www.sciweavers.org/free-online-latex-equation-editor
