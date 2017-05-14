@@ -195,7 +195,7 @@ Max Pooling层的逆操作，其与Deconvlution层的区别如下图所示，Poo
 | Caffe | type: "Crop"| 
 | Pytorch | Tensor.contiguous() | 
 
-将特征图尺寸剪裁到与参考特征图同样大小，caffe中可以使用专门的Crop层，Pytorch中直接对要剪裁的特征图tensor进行维度操作即可。
+将特征图尺寸剪裁到与参考特征图同样大小，该层在FCN中多次出现，用来解决输入图像大小不一致的问题。caffe中可以使用专门的Crop层，Pytorch中直接对要剪裁的特征图tensor进行维度操作即可。
 
 ```
 h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous() #x.size[2], x.size[3] 分别为参考特征图的高和宽
@@ -207,7 +207,7 @@ h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous() #x.size[2], x.size[3]
 | Caffe | type: "Concat"| 
 | Pytorch | torch.cat(seq, dim=0)| 
 
-将同样大小的特征图拼接在一起，形成新的维度。
+将相同长宽的特征图拼接在一起，形成新的维度。
 <p align="center"><img width="50%" src="pics/Concatenate-layer.png" /></p>
 
 ## Batch Normalization Layer
@@ -218,7 +218,7 @@ h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous() #x.size[2], x.size[3]
 
 Batch Normalization解决的是[Internal Covariate Shift](https://arxiv.org/abs/1502.03167)问题，即由于每一层的参数都在不断变化，所以输出的分布也会不断变化，造成梯度需要不断适应新的数据分布。所以，每一个mini batch里，对每个维度进行归一化:
 
-![equation](http://mathurl.com/mh3x47a.png)
+![equation](http://www.sciweavers.org/upload/Tex2Img_1494772810/eqn.png)
 
 上式中的γ和β为可学习参数。
 
