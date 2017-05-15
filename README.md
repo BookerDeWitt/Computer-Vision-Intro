@@ -100,7 +100,7 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
 
 往往在以视频流为输入的网络中使用。
 
-<p align="center"><img width="40%" src="pics/3Conv.png" /></p>
+<p align="center"><img width="50%" src="pics/3Conv.png" /></p>
 
 ```
 3DConv1 = nn.Conv3d( 1, n1, kernel_size=(d0, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
