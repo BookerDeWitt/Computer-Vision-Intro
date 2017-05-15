@@ -220,11 +220,7 @@ h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous() #x.size[2], x.size[3]
 
 Batch Normalization解决的是[Internal Covariate Shift](https://arxiv.org/abs/1502.03167)问题，即由于每一层的参数都在不断变化，所以输出的分布也会不断变化，造成梯度需要不断适应新的数据分布。所以，每一个mini batch里，对每个维度进行归一化:
 
-$
-\begin{aligned} 
 ![equation](http://www.sciweavers.org/upload/Tex2Img_1494772810/eqn.png) 
-\end{aligned}
-$
 
 上式中的γ和β为可学习参数。
 
