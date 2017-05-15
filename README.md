@@ -352,3 +352,6 @@ SoftmaxWithLoss层是在之前Softmax结果基础上，得到的一种损失函�
 
 对比SoftmaxWithLoss可以看出，在二分类问题上CrossEntropyLoss与SoftmaxWithLoss等价。
 
+近期，也有人将交叉熵损失函数引入到多分类问题，其表示形式为：
+
+
