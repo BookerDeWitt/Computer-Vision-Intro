@@ -247,7 +247,19 @@ y = x.view(L, r*h, r*w)
 or
 nn.PixelShuffle(r)
 ```
-## Softmax Layer
+
+
+## Activation Function Layer
+
+激活函数的作用是给神经网络加入一些非线性因素，使得神经网络可以更好地解决较为复杂的问题。
+
+### ReLU
+
+### Sigmoid
+
+### Tanh
+
+### Softmax Layer
 | Framework | Code | 
 | --- | --- | 
 | Caffe | type: "Softmax"| 
@@ -274,13 +286,9 @@ class torch.nn.LogSoftmax + NLLLoss
 
 #### Binary-Class
 
-#### Common
+#### Classic
 
 ![equation](http://www.sciweavers.org/upload/Tex2Img_1494773148/eqn.png)
 ![equation](http://mathurl.com/5euwuy.png)
 
 
-
-http://www.sciweavers.org/free-online-latex-equation-editor
-
-http://mathurl.com/
