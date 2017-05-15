@@ -326,15 +326,26 @@ softmax层往往用于多分类问题的最终输出层，用来输出各类的�
 用来定义训练过程中的网络输出与真值不一致程度的函数。
 
 ### SoftmaxWithLoss Layer
-class torch.nn.LogSoftmax + NLLLoss
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "SoftmaxWithLoss"| 
+| Pytorch | torch.nn.LogSoftmax and torch.nn.NLLLoss |
 
 ### CrossEntropyLoss Layer
 
 #### Multi-Class
 
 #### Binary-Class
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "SoftmaxWithLoss"| 
+| Pytorch | torch.nn.BCELoss(weight=None, size_average=True) |
 
 #### Classic
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "CrossEntropyLoss"| 
+| Pytorch | torch.nn.CrossEntropyLoss(weight=None, size_average=True) |
 
 ![equation](http://www.sciweavers.org/upload/Tex2Img_1494773148/eqn.png)
 ![equation](http://mathurl.com/5euwuy.png)
