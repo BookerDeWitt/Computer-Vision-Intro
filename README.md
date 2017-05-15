@@ -259,7 +259,7 @@ nn.PixelShuffle(r)
 | Caffe | type: "ReLU"| 
 | Pytorch | torch.nn.ReLU | 
 
-<p align="center"><img width="50%" src="pics/relu-layer.png" /></p>
+<p align="center"><img width="35%" src="pics/relu-layer.png" /></p>
 
 ### Sigmoid
 | Framework | Code | 
@@ -267,7 +267,7 @@ nn.PixelShuffle(r)
 | Caffe | type: "Sigmoid"| 
 | Pytorch | torch.nn.Sigmoid | 
 
-<p align="center"><img width="50%" src="pics/Sigmoid-layer.png" /></p>
+<p align="center"><img width="35%" src="pics/Sigmoid-layer.png" /></p>
 
 ### Tanh
 | Framework | Code | 
@@ -275,7 +275,7 @@ nn.PixelShuffle(r)
 | Caffe | type: "TanH"| 
 | Pytorch | torch.nn.Tanh | 
 
-<p align="center"><img width="50%" src="pics/TanH-layer.png" /></p>
+<p align="center"><img width="35%" src="pics/TanH-layer.png" /></p>
 
 ### Softmax Layer
 | Framework | Code | 
