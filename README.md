@@ -331,29 +331,34 @@ softmax层往往用于多分类问题的最终输出层，如下图所示：
 | Framework | Code | 
 | --- | --- | 
 | Caffe | type: "SoftmaxWithLoss"| 
-| Pytorch | torch.nn.LogSoftmax and torch.nn.NLLLoss |
+| Pytorch | torch.nn.CrossEntropyLoss(weight=None, size_average=True) |
 
 SoftmaxWithLoss层是在之前Softmax结果基础上，得到的一种损失函数。假设k为图像第n个像素对应的类别真值，则整个图像的损失函数可以表示为：
 
 ![euqation](http://www.sciweavers.org/upload/Tex2Img_1494832306/render.png)
 
-k为图像第n个像素对应的类别真值，则
+该函数形式也被称为log-likelihood cost（对数似然损失函数）。
 
 ### CrossEntropyLoss Layer
 
-#### Multi-Class
+为了解决Sigmoid函数产生的饱和性梯度消失问题，学者们又引入了交叉熵损失函数。
+
+
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "SigmoidCrossEntropyLoss"| 
+| Pytorch | torch.nn.CrossEntropyLoss(weight=None, size_average=True) |
+
+![equation](http://www.sciweavers.org/upload/Tex2Img_1494835035/render.png)
 
 #### Binary-Class
 | Framework | Code | 
 | --- | --- | 
-| Caffe | type: "SoftmaxWithLoss"| 
+| Caffe | type: "SigmoidCrossEntropyLoss"| 
 | Pytorch | torch.nn.BCELoss(weight=None, size_average=True) |
 
-#### Classic
-| Framework | Code | 
-| --- | --- | 
-| Caffe | type: "CrossEntropyLoss"| 
-| Pytorch | torch.nn.CrossEntropyLoss(weight=None, size_average=True) |
+#### Multi-Class
+
 
 ![equation](http://www.sciweavers.org/upload/Tex2Img_1494773148/eqn.png)
 ![equation](http://mathurl.com/5euwuy.png)
