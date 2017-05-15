@@ -1,8 +1,8 @@
 # Common Layers in Deep Learning
-| Framework | Python | 
-| --- | --- | 
-| Caffe | 2.7 | 
-| Pytorch | 2.7 | 
+| Framework | Python | Official Documentation | 
+| --- | --- | --- | 
+| Caffe | 2.7 | [Caffe Layer Catalogue](http://caffe.berkeleyvision.org/tutorial/layers.html) |
+| Pytorch | 2.7 | [Pytorch Documentation](http://pytorch.org/docs/nn.html) |
 
 
 ## Fully Connected Layer 全连接层
