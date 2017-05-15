@@ -335,7 +335,7 @@ softmax层往往用于多分类问题的最终输出层，如下图所示：
 
 SoftmaxWithLoss层是在之前Softmax结果基础上，得到的一种损失函数。假设k为图像第n个像素对应的类别真值，则整个图像的损失函数可以表示为：
 
-![euqation](http://www.sciweavers.org/upload/Tex2Img_1494835474/render.png)
+![euqation](http://www.sciweavers.org/upload/Tex2Img_1494836006/render.png)
 
 该函数形式也被称为log-likelihood cost（对数似然损失函数）。
 
@@ -350,5 +350,5 @@ SoftmaxWithLoss层是在之前Softmax结果基础上，得到的一种损失函�
 
 ![equation](http://www.sciweavers.org/upload/Tex2Img_1494835035/render.png)
 
-对比SoftmaxWithLoss可以看出，当类别总数为2时，CrossEntropyLoss与SoftmaxWithLoss等价。
+对比SoftmaxWithLoss可以看出，在二分类问题上CrossEntropyLoss与SoftmaxWithLoss等价。
 
