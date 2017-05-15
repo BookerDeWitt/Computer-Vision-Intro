@@ -346,9 +346,9 @@ SoftmaxWithLoss层是在之前Softmax结果基础上，得到的一种损失函�
 | Pytorch | torch.nn.BCELoss(weight=None, size_average=True) |
 
 
-为了解决Sigmoid函数产生的饱和性梯度消失问题，学者们又引入了交叉熵损失函数。
+为了解决Sigmoid函数产生的饱和性梯度消失问题，学者们又引入了交叉熵损失函数，主要用于二分类问题。该损失函数如下式所示,p<sub>n</sub>表示经过Sigmoid输出的分类概率，label<sub>n</sub>表示像素n的类别标标签真值。
 
 ![equation](http://www.sciweavers.org/upload/Tex2Img_1494835035/render.png)
 
-
+对比SoftmaxWithLoss可以看出，当类别总数为2时，CrossEntropyLoss与SoftmaxWithLoss等价。
 
