@@ -220,15 +220,16 @@ h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous() #x.size[2], x.size[3]
 
 Batch Normalization解决的是[Internal Covariate Shift](https://arxiv.org/abs/1502.03167)问题，即由于每一层的参数都在不断变化，所以输出的分布也会不断变化，造成梯度需要不断适应新的数据分布。所以，每一个mini batch里，对每个维度进行归一化:
 
-![equation](http://www.sciweavers.org/upload/Tex2Img_1494772810/eqn.png)
+<p align="center">![equation](http://www.sciweavers.org/upload/Tex2Img_1494772810/eqn.png)</p>
 
-一个batch里的128个图，经过一个64 kernels卷积层处理，得到了128×64个图，再针对每一个kernel所对应的128个图，求它们所有像素的mean和variance，因为总共有64个kernels，输出的结果就是一个一维长度64的数组啦！
+上式中的γ和β为可学习参数。
+
+针对CNN中的高维特征，假设一个batch里的128个图，经过一个64 kernels卷积层处理，得到了128×64个特征图，再针对每一个kernel所对应的128个特征图，求它们所有像素的mean和variance，因为总共有64个kernels，输出的结果就因此为一维长度64的数组。
 
 <p align="center"><img width="50%" src="pics/BN-way.png" /></p>
 
-![BN效果为什么好？](https://www.zhihu.com/question/38102762)
+[BN效果为什么好？](https://www.zhihu.com/question/38102762)
 
-上式中的γ和β为可学习参数。
 
 ## Reshape Layer
 | Framework | Code | 
