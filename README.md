@@ -261,12 +261,13 @@ nn.PixelShuffle(r)
 
 <p align="center"><img width="40%" src="pics/Sigmoid-layer.png" /></p>
 
-** 优点： **
+**优点：**
 
 - Sigmoid函数的输出映射在(0,1)(0,1)之间，单调连续，输出范围有限，优化稳定，可以用作输出层；
 - 求导容易。
 
-** 缺点： **
+**缺点：**
+
 - 由于其软饱和性，容易产生梯度消失，导致训练出现问题；
 - 其输出并不是以0为中心的。
 
@@ -278,12 +279,13 @@ nn.PixelShuffle(r)
 
 <p align="center"><img width="40%" src="pics/TanH-layer.png" /></p>
 
-** 优点： **
+**优点：**
 
 - 比Sigmoid函数收敛速度更快；
 - 相比Sigmoid函数，其输出以0为中心。
 
-** 缺点： **
+**缺点：**
+
 - 饱和性产生的梯度消失。
 
 ### ReLU
@@ -294,14 +296,15 @@ nn.PixelShuffle(r)
 
 <p align="center"><img width="32%" src="pics/relu-layer.png" /></p>
 
-** 优点： **
+**优点：**
 
 - 相比起Sigmoid和tanh，ReLU在SGD中能够快速收敛；
 - ReLU实现更加简单；
 - 有效缓解了梯度消失的问题；
 - 提供了神经网络的稀疏表达能力。
 
-** 缺点： **
+**缺点：**
+
 - 随着训练的进行，可能会出现神经元死亡，权重无法更新的情况。
 
 ### Softmax Layer
