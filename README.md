@@ -220,6 +220,10 @@ Batch Normalization解决的是[Internal Covariate Shift](https://arxiv.org/abs/
 
 ![equation](http://www.sciweavers.org/upload/Tex2Img_1494772810/eqn.png)
 
+一个batch里的128个图，经过一个64 kernels卷积层处理，得到了128×64个图，再针对每一个kernel所对应的128个图，求它们所有像素的mean和variance，因为总共有64个kernels，输出的结果就是一个一维长度64的数组啦！
+
+<p align="center"><img width="50%" src="pics/Concatenate-layer.png" /></p>
+
 上式中的γ和β为可学习参数。
 
 ## Reshape Layer
