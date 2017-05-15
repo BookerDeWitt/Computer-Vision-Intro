@@ -239,7 +239,7 @@ Batch Normalization解决的是[Internal Covariate Shift](https://arxiv.org/abs/
 
 在不改变特征数值和特征总量的情况下改变特征图的形状：
 
-<p align="center"><img width="50%" src="pics/reshape-layer.png" /></p>
+<p align="center"><img width="65%" src="pics/reshape-layer.png" /></p>
 
 ```
 x = torch.randn(L*r*r, h, w)
