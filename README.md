@@ -315,7 +315,7 @@ nn.PixelShuffle(r)
 
 softmax用于多分类问题，比如0-9的数字识别，共有10个输出，而且这10个输出的概率和加起来应该为1，所以可以用一个softmax操作归一化这10个输出。进一步一般化，假如共有m个输出，softmax的可以形式化表示为：
 
-![equation](http://www.sciweavers.org/upload/Tex2Img_1494830144/render.png)
+![equation](http://www.sciweavers.org/upload/Tex2Img_1494832806/render.png)
 
 上式表示在一个m类的分类问题中，Z<sub>n,i</sub>为网络对图像第n个像素的是否为第i个类别的预测结果，首先对每一个预测结果取exponential变成非负，然后除以所有项之和进行归一化。此时的结果可以解释成图像第n个像素属于类别i的概率。
 
