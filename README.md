@@ -254,10 +254,28 @@ nn.PixelShuffle(r)
 激活函数的作用是给神经网络加入一些非线性因素，使得神经网络可以更好地解决较为复杂的问题。
 
 ### ReLU
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "ReLU"| 
+| Pytorch | torch.nn.ReLU | 
+
+<p align="center"><img width="50%" src="pics/relu-layer.png" /></p>
 
 ### Sigmoid
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "Sigmoid"| 
+| Pytorch | torch.nn.Sigmoid | 
+
+<p align="center"><img width="50%" src="pics/Sigmoid-layer.png" /></p>
 
 ### Tanh
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "TanH"| 
+| Pytorch | torch.nn.Tanh | 
+
+<p align="center"><img width="50%" src="pics/TanH-layer.png" /></p>
 
 ### Softmax Layer
 | Framework | Code | 
