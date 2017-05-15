@@ -195,6 +195,8 @@ Max Pooling层的逆操作，其与Deconvlution层的区别如下图所示，Poo
 | Caffe | type: "Crop"| 
 | Pytorch | Tensor.contiguous() | 
 
+<p align="center"><img width="50%" src="pics/crop-layer.png" /></p>
+
 Crop层功能如上图所示，输入为待剪裁特征图A，以及参考特征图B（需满足A尺寸大于B）。Crop层的输出特征图A1由输入A剪裁而来，其大小与B一致，剪裁的偏移量由设置决定。该层在FCN中多次出现，用来解决输入图像大小不一致的问题。caffe中可以使用专门的Crop层，Pytorch中直接对要剪裁的特征图tensor进行维度操作即可。
 
 ```
@@ -222,7 +224,7 @@ Batch Normalization解决的是[Internal Covariate Shift](https://arxiv.org/abs/
 
 一个batch里的128个图，经过一个64 kernels卷积层处理，得到了128×64个图，再针对每一个kernel所对应的128个图，求它们所有像素的mean和variance，因为总共有64个kernels，输出的结果就是一个一维长度64的数组啦！
 
-<p align="center"><img width="50%" src="pics/Concatenate-layer.png" /></p>
+<p align="center"><img width="50%" src="pics/BN-way.png" /></p>
 
 上式中的γ和β为可学习参数。
 
