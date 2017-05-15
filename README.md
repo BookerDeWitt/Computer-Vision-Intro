@@ -340,27 +340,15 @@ SoftmaxWithLoss层是在之前Softmax结果基础上，得到的一种损失函�
 该函数形式也被称为log-likelihood cost（对数似然损失函数）。
 
 ### CrossEntropyLoss Layer
-
-为了解决Sigmoid函数产生的饱和性梯度消失问题，学者们又引入了交叉熵损失函数。
-
-
-| Framework | Code | 
-| --- | --- | 
-| Caffe | type: "SigmoidCrossEntropyLoss"| 
-| Pytorch | torch.nn.CrossEntropyLoss(weight=None, size_average=True) |
-
-![equation](http://www.sciweavers.org/upload/Tex2Img_1494835035/render.png)
-
-#### Binary-Class
 | Framework | Code | 
 | --- | --- | 
 | Caffe | type: "SigmoidCrossEntropyLoss"| 
 | Pytorch | torch.nn.BCELoss(weight=None, size_average=True) |
 
-#### Multi-Class
 
+为了解决Sigmoid函数产生的饱和性梯度消失问题，学者们又引入了交叉熵损失函数。
 
-![equation](http://www.sciweavers.org/upload/Tex2Img_1494773148/eqn.png)
-![equation](http://mathurl.com/5euwuy.png)
+![equation](http://www.sciweavers.org/upload/Tex2Img_1494835035/render.png)
+
 
 
