@@ -226,6 +226,8 @@ Batch Normalization解决的是[Internal Covariate Shift](https://arxiv.org/abs/
 
 <p align="center"><img width="50%" src="pics/BN-way.png" /></p>
 
+![BN效果为什么好？](https://www.zhihu.com/question/38102762)
+
 上式中的γ和β为可学习参数。
 
 ## Reshape Layer
