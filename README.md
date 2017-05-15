@@ -249,6 +249,34 @@ nn.PixelShuffle(r)
 ```
 
 ## LSTM
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "LSTM"| 
+| Pytorch | nn.LSTM | 
+
+## Split Layer
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "Split"| 
+| Pytorch | -- | 
+
+Splitting层可以把一个输入blob分离成多个输出blobs。这个用在当需要把一个blob输入到多个输出层的时候。
+
+## ArgMax Layer
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "ArgMax"| 
+| Pytorch | nn.max | 
+get the class with the largest probability/likelihood.
+
+## Elementwise Layer
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "Eltwise"| 
+| Pytorch | -- | 
+
+Eltwise层的操作有三个：product（点乘）， sum（相加减） 和 max（取大值），其中sum是默认操作。
+假设输入（bottom）为A和B，如果要实现element_wise的A+B，即A和B的对应元素相加，prototxt文件如下： 
 
 ## Activation Function Layer 激活函数层
 
