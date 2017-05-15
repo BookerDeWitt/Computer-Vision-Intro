@@ -161,7 +161,7 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
 | Caffe | type: "Pooling" pool: MAX| 
 | Pytorch | torch.nn.MaxPool2d(kernel_size, stride=None, padding=0, dilation=1, return_indices=False, ceil_mode=False) | 
 
-<p align="center"><img width="70%" src="pics/numerical_max_pooling.png" /></p>
+<p align="center"><img width="50%" src="pics/numerical_max_pooling.png" /></p>
 
 ```
 Pool1 = nn.MaxPool2d(3, 1, padding=0)
@@ -169,7 +169,7 @@ Pool1 = nn.MaxPool2d(3, 1, padding=0)
 
 ## RoI Pooling Layer
 
-<p align="center"><img width="60%" src="pics/roipooling1.png" /></p>
+<p align="center"><img width="70%" src="pics/roipooling1.png" /></p>
 
 RoI Pooling层在论文[Fast R-CNN](http://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Girshick_Fast_R-CNN_ICCV_2015_paper.pdf)中被提出，主要用于为大小不同的RoI(Region of Interest)区域提取大小相同的特征图，其主要过程为：
 - 将RoI区域的坐标缩放到与特征图同一尺度，并对缩放后的坐标取整；
