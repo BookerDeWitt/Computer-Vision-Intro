@@ -249,7 +249,7 @@ nn.PixelShuffle(r)
 ```
 
 
-## Activation Function Layer
+## Activation Function Layer 激活函数层
 
 激活函数的作用是给神经网络加入一些非线性因素，使得神经网络可以更好地解决较为复杂的问题。
 
