@@ -313,11 +313,13 @@ nn.PixelShuffle(r)
 | Caffe | type: "Softmax"| 
 | Pytorch | torch.nn.Softmax | 
 
-softmax用于多分类问题，比如0-9的数字识别，共有10个输出，而且这10个输出的概率和加起来应该为1，所以可以用一个softmax操作归一化这10个输出。进一步一般化，假如共有k个输出，softmax的假设可以形式化表示为：
+softmax用于多分类问题，比如0-9的数字识别，共有10个输出，而且这10个输出的概率和加起来应该为1，所以可以用一个softmax操作归一化这10个输出。进一步一般化，假如共有m个输出，softmax的可以形式化表示为：
 
-<p align="center"><img width="50%" src="pics/softmax.png" /></p>
+![equation](http://www.sciweavers.org/upload/Tex2Img_1494829997/render.png)
 
-softmax层往往用于多分类问题的最终输出层，用来输出各类的概率，如下图所示：
+上式表示在一个m类的分类问题中，Z<sub>n,i</sub>为网络对图像第n个像素的是否为第i个类别的预测结果，首先对每一个预测结果取exponential变成非负，然后除以所有项之和进行归一化。此时的结果可以解释成图像第n个像素属于类别i的概率。
+
+softmax层往往用于多分类问题的最终输出层，如下图所示：
 
 <p align="center"><img width="50%" src="pics/softmax-in-net.png" /></p>
 
@@ -330,6 +332,8 @@ softmax层往往用于多分类问题的最终输出层，用来输出各类的�
 | --- | --- | 
 | Caffe | type: "SoftmaxWithLoss"| 
 | Pytorch | torch.nn.LogSoftmax and torch.nn.NLLLoss |
+
+
 
 ### CrossEntropyLoss Layer
 
