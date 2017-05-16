@@ -364,9 +364,10 @@ layer
 
 为了解决ReLU激活函数中神经元死亡的问题，提出的[改进版ReLU](https://arxiv.org/pdf/1502.01852.pdf)，其表达形式为：
 
-![equation](http://www.sciweavers.org/upload/Tex2Img_1494933318/render.png)
-
 <p align="center"><img width="60%" src="pics/prelu-layer.png" /></p>
+
+
+![equation](http://www.sciweavers.org/upload/Tex2Img_1494933318/render.png)
 
 在Leaky-ReLU中，α为常量（通常定位0.25）；在P-ReLU中α为可学习参数。
 
