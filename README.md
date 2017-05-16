@@ -214,7 +214,7 @@ Batch Normalization解决的是[Internal Covariate Shift](https://arxiv.org/abs/
 | Caffe | type: "LSTM"| 
 | Pytorch | nn.LSTM |
 
-<p align="center"><img width="50%" src="pics/LSTM-layer.png" /></p>
+<p align="center"><img width="60%" src="pics/LSTM-layer.png" /></p>
 
 一种解决长期记忆问题的RNN网络。[Understanding LSTM](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
@@ -262,15 +262,16 @@ nn.PixelShuffle(r)
 | Framework | Code | 
 | --- | --- | 
 | Caffe | type: "Split"| 
-| Pytorch | —— | 
+| Pytorch | Tensor操作 | 
 
 需要把一个输入到多个输出层的时，Split层可以把一个输入复制成多个相同的输出。 Pytorch中直接对Tensor进行操作即可，无需专门层。
 
 ## ArgMax Layer
+
 | Framework | Code | 
-| --- | —— | 
+| --- | --- | 
 | Caffe | type: "ArgMax"| 
-| Pytorch | torch.max(input, dim, keepdim=True, max=None, max_indices=None)  | 
+| Pytorch | torch.max(input, dim, keepdim=True, max=None, max_indices=None) | 
 
 得到输出数据在某一维度的最大值，常用在分类网络test部分，同来得到预测概率最大的类别。
 
@@ -278,9 +279,9 @@ nn.PixelShuffle(r)
 | Framework | Code | 
 | --- | --- | 
 | Caffe | type: "Eltwise"| 
-| Pytorch | —— | 
+| Pytorch | Tensor操作 | 
 
-Eltwise层的输入为两个大小一致的特征图，并对其进行按元素操作，它支持3种基本操作：product（点乘）， SUM（相加减） 和 max（取大值）。假设输入（bottom）为A和B，如果要实现element_wise的A+B，即A和B的对应元素相加，prototxt文件如下：
+Eltwise层的输入为两个大小一致的特征图，并对其进行按元素操作，它支持3种基本操作：PROD（点乘）， SUM（相加减） 和 MAX（取大值）。假设输入（bottom）为A和B，如果要实现element_wise的A+B，即A和B的对应元素相加，prototxt文件如下：
 
 ```
 #Caffe prototxt
