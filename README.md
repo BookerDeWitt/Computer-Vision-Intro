@@ -159,7 +159,7 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
 | Framework | Code | 
 | --- | --- | 
 | Caffe | type: "Pooling" pool: MAX pool: MAX or AVE| 
-| Pytorch | torch.nn.MaxPool2d(kernel_size, stride=None, padding=0, dilation=1, return_indices=False, ceil_mode=False) torch.nn.AvgPool2d(kernel_size, stride=None, padding=0, ceil_mode=False, count_include_pad=True)| 
+| Pytorch | torch.nn.MaxPool2d(kernel_size, stride=None, padding=0, dilation=1, return_indices=False, ceil_mode=False) <br> torch.nn.AvgPool2d(kernel_size, stride=None, padding=0, ceil_mode=False, count_include_pad=True)| 
 
 <p align="center"><img width="50%" src="pics/pooling-layer.png" /></p>
 
