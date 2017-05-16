@@ -208,7 +208,7 @@ Batch Normalization解决的是[Internal Covariate Shift](https://arxiv.org/abs/
 
 [BN效果为什么好？](https://www.zhihu.com/question/38102762)
 
-## LSTM
+## LSTM Layer
 | Framework | Code | 
 | --- | --- | 
 | Caffe | type: "LSTM"| 
@@ -224,7 +224,7 @@ Batch Normalization解决的是[Internal Covariate Shift](https://arxiv.org/abs/
 | Caffe | type: "Crop"| 
 | Pytorch | Tensor.contiguous() | 
 
-<p align="center"><img width="50%" src="pics/crop-layer.png" /></p>
+<p align="center"><img width="50%" src="pics/crop-layer-new.png" /></p>
 
 Crop层功能如上图所示，输入为待剪裁特征图A，以及参考特征图B（需满足A尺寸大于B）。Crop层的输出特征图A1由输入A剪裁而来，其大小与B一致，剪裁的偏移量由设置决定。该层在FCN中多次出现，用来解决输入图像大小不一致的问题。caffe中可以使用专门的Crop层，Pytorch中直接对要剪裁的特征图tensor进行维度操作即可。
 
