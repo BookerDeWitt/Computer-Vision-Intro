@@ -154,17 +154,18 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
   </tr>
 </table>
 
-## Max Pooling Layer 池化层
+## Pooling Layer 池化层
 
 | Framework | Code | 
 | --- | --- | 
-| Caffe | type: "Pooling" pool: MAX| 
-| Pytorch | torch.nn.MaxPool2d(kernel_size, stride=None, padding=0, dilation=1, return_indices=False, ceil_mode=False) | 
+| Caffe | type: "Pooling" pool: MAX pool: MAX or AVE| 
+| Pytorch | torch.nn.MaxPool2d(kernel_size, stride=None, padding=0, dilation=1, return_indices=False, ceil_mode=False) torch.nn.AvgPool2d(kernel_size, stride=None, padding=0, ceil_mode=False, count_include_pad=True)| 
 
-<p align="center"><img width="50%" src="pics/numerical_max_pooling.png" /></p>
+<p align="center"><img width="50%" src="pics/pooling-layer.png" /></p>
 
 ```
-Pool1 = nn.MaxPool2d(3, 1, padding=0)
+Pool1 = nn.AvgPool2d(2, stride=2, padding=0)
+Pool2 = nn.MaxPool2d(2, stride=2, padding=0)
 ```
 
 ## RoI Pooling Layer
@@ -189,6 +190,34 @@ Max Pooling层的逆操作，其与Deconvlution层的区别如下图所示，Poo
 
 <p align="center"><img width="50%" src="pics/diff_unpooling.PNG" /></p>
 
+## Batch Normalization Layer
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "BatchNorm" and type: "Scale"| 
+| Pytorch | torch.nn.BatchNorm2d(num_features, eps=1e-05, momentum=0.1, affine=True)| 
+
+Batch Normalization解决的是[Internal Covariate Shift](https://arxiv.org/abs/1502.03167)问题，即由于每一层的参数都在不断变化，所以输出的分布也会不断变化，造成梯度需要不断适应新的数据分布。所以，每一个mini batch里，对每个维度进行归一化:
+
+![equation](http://www.sciweavers.org/upload/Tex2Img_1494772810/eqn.png) 
+
+上式中的γ和β为可学习参数。
+
+针对CNN中的高维特征，假设一个batch里的128个图，经过一个64 kernels卷积层处理，得到了128×64个特征图，再针对每一个kernel所对应的128个特征图，求它们所有像素的mean和variance，因为总共有64个kernels，输出的结果就因此为一维长度64的数组。
+
+<p align="center"><img width="50%" src="pics/BN-way.png" /></p>
+
+[BN效果为什么好？](https://www.zhihu.com/question/38102762)
+
+## LSTM
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "LSTM"| 
+| Pytorch | nn.LSTM |
+
+<p align="center"><img width="50%" src="pics/LSTM-layer.png" /></p>
+
+一种解决长期记忆问题的RNN网络。[Understanding LSTM](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+
 ## Crop Layer
 | Framework | Code | 
 | --- | --- | 
@@ -212,25 +241,6 @@ h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous() #x.size[2], x.size[3]
 将相同长宽的特征图拼接在一起，形成新的维度。
 <p align="center"><img width="50%" src="pics/Concatenate-layer.png" /></p>
 
-## Batch Normalization Layer
-| Framework | Code | 
-| --- | --- | 
-| Caffe | type: "BatchNorm" and type: "Scale"| 
-| Pytorch | torch.nn.BatchNorm2d(num_features, eps=1e-05, momentum=0.1, affine=True)| 
-
-Batch Normalization解决的是[Internal Covariate Shift](https://arxiv.org/abs/1502.03167)问题，即由于每一层的参数都在不断变化，所以输出的分布也会不断变化，造成梯度需要不断适应新的数据分布。所以，每一个mini batch里，对每个维度进行归一化:
-
-![equation](http://www.sciweavers.org/upload/Tex2Img_1494772810/eqn.png) 
-
-上式中的γ和β为可学习参数。
-
-针对CNN中的高维特征，假设一个batch里的128个图，经过一个64 kernels卷积层处理，得到了128×64个特征图，再针对每一个kernel所对应的128个特征图，求它们所有像素的mean和variance，因为总共有64个kernels，输出的结果就因此为一维长度64的数组。
-
-<p align="center"><img width="50%" src="pics/BN-way.png" /></p>
-
-[BN效果为什么好？](https://www.zhihu.com/question/38102762)
-
-
 ## Reshape Layer
 | Framework | Code | 
 | --- | --- | 
@@ -248,35 +258,44 @@ or
 nn.PixelShuffle(r)
 ```
 
-## LSTM
-| Framework | Code | 
-| --- | --- | 
-| Caffe | type: "LSTM"| 
-| Pytorch | nn.LSTM | 
-
 ## Split Layer
 | Framework | Code | 
 | --- | --- | 
 | Caffe | type: "Split"| 
-| Pytorch | -- | 
+| Pytorch | —— | 
 
-Splitting层可以把一个输入blob分离成多个输出blobs。这个用在当需要把一个blob输入到多个输出层的时候。
+需要把一个输入到多个输出层的时，Split层可以把一个输入复制成多个相同的输出。 Pytorch中直接对Tensor进行操作即可，无需专门层。
 
 ## ArgMax Layer
 | Framework | Code | 
-| --- | --- | 
+| --- | —— | 
 | Caffe | type: "ArgMax"| 
-| Pytorch | nn.max | 
-get the class with the largest probability/likelihood.
+| Pytorch | torch.max(input, dim, keepdim=True, max=None, max_indices=None)  | 
+
+得到输出数据在某一维度的最大值，常用在分类网络test部分，同来得到预测概率最大的类别。
 
 ## Elementwise Layer
 | Framework | Code | 
 | --- | --- | 
 | Caffe | type: "Eltwise"| 
-| Pytorch | -- | 
+| Pytorch | —— | 
 
-Eltwise层的操作有三个：product（点乘）， sum（相加减） 和 max（取大值），其中sum是默认操作。
-假设输入（bottom）为A和B，如果要实现element_wise的A+B，即A和B的对应元素相加，prototxt文件如下： 
+Eltwise层的输入为两个大小一致的特征图，并对其进行按元素操作，它支持3种基本操作：product（点乘）， SUM（相加减） 和 max（取大值）。假设输入（bottom）为A和B，如果要实现element_wise的A+B，即A和B的对应元素相加，prototxt文件如下：
+
+```
+#Caffe prototxt
+layer 
+{
+  name: "eltwise_layer"
+  type: "Eltwise"
+  bottom: "A"
+  bottom: "B"
+  top: "diff"
+  eltwise_param {
+    operation: SUM
+  }
+}
+```
 
 ## Activation Function Layer 激活函数层
 
