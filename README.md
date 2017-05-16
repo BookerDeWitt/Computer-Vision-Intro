@@ -368,6 +368,16 @@ layer
 
 <p align="center"><img width="50%" src="pics/prelu-layer.png" /></p>
 
+在Leaky-ReLU中，α为常量（通常定位0.25）；在P-ReLU中α为可学习参数。
+
+**优点：**
+
+- 有效缓解了负值处神经元死亡的问题。
+
+**缺点：**
+
+- 由于参数的增加，稍微增加了些过拟合的风险。
+
 ### Softmax Layer
 | Framework | Code | 
 | --- | --- | 
