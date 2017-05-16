@@ -239,7 +239,7 @@ h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous() #x.size[2], x.size[3]
 | Pytorch | torch.cat(seq, dim=0)| 
 
 将相同长宽的特征图拼接在一起，形成新的维度。
-<p align="center"><img width="50%" src="pics/Concatenate-layer.png" /></p>
+<p align="center"><img width="50%" src="pics/Concat-layer.png" /></p>
 
 ## Reshape Layer
 | Framework | Code | 
