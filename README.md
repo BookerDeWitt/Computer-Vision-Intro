@@ -356,6 +356,18 @@ layer
 
 - 随着训练的进行，可能会出现神经元死亡，权重无法更新的情况。
 
+### Leaky-ReLU and P-Relu
+| Framework | Code | 
+| --- | --- | 
+| Caffe | type: "ReLU" <br> type: "PReLU"| 
+| Pytorch | torch.nn.LeakyReLU(negative_slope=0.01, inplace=False) <br> torch.nn.PReLU(num_parameters=1, init=0.25)| 
+
+为了解决ReLU激活函数中神经元死亡的问题，提出的[改进版ReLU](https://arxiv.org/pdf/1502.01852.pdf)，其表达形式为：
+
+![equation](http://www.sciweavers.org/upload/Tex2Img_1494933318/render.png)
+
+<p align="center"><img width="50%" src="pics/prelu-layer.png" /></p>
+
 ### Softmax Layer
 | Framework | Code | 
 | --- | --- | 
