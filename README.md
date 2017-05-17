@@ -4,6 +4,23 @@
 | Caffe | 2.7 | [Caffe Layer Catalogue](http://caffe.berkeleyvision.org/tutorial/layers.html) |
 | Pytorch | 2.7 | [Pytorch Documentation](http://pytorch.org/docs/nn.html) |
 
+## Data Structure 基本数据结构
+| Framework | Code | 
+| --- | --- | 
+| Caffe | Blob | 
+| Pytorch | Tensor | 
+
+深度学习网络大致可以分为Data, Layer和Net三层架构。下面介绍的所有常用层都属于Layer，用来实现各种数学操作。而Net由一系列的Layer组成，用来描述各Layer间数据的流向。而每个Layer的输入和输出即为Data。
+
+每个深度学习架构都有着自己的数据结构定义方式：Caffe和Pytorch中对Data的称呼不同（Blob和Tensor），但其结构是比较类似的。大多数层的输入输出都是一个四维数组，其维度含义为(Batch_Size N, Channel C, Height H, Width W)，其直观理解如下图所示：
+
+<p align="center"><img width="50%" src="pics/data.png" /></p> 
+
+注意：
+- 网络对一个batch中每组数据的处理完全相同，因此不会Batch_Size N的增加不会影响网络的参数，但会增加对显存的使用量（用来存放更多batch的特征图）；
+- 网络在完成对batch中全部数据的前向运算后，才会进行BP运算更新网络权重；
+- 并不是每个层都使用的4维数据：Fully Connected Layer使用的就是二维数据(shape(N, D)), 3D Convolution Layer则使用五维数据(shape(N, C, D, H, W))。
+
 
 ## Fully Connected Layer 全连接层
 | Framework | Code | 
@@ -31,7 +48,7 @@ fc2 = nn.Linear(4,1)
 
 ## Convolution Layer 卷积层
 
-### 2D Convolution
+### 2D Convolution Layer
 
 | Framework | Code | 
 | --- | --- | 
@@ -91,7 +108,7 @@ Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilat
   </tr>
 </table>
 
-### 3D Convolution
+### 3D Convolution Layer
 
 | Framework | Code | 
 | --- | --- | 
