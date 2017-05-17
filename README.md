@@ -249,7 +249,7 @@ h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous() #x.size[2], x.size[3]
 
 在不改变特征数值和特征总量的情况下改变特征图的形状：
 
-<p align="center"><img width="65%" src="pics/reshape-layer.png" /></p> 
+
 
 ```
 x = torch.randn(L*r*r, h, w)
