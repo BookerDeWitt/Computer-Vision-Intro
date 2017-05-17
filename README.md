@@ -65,6 +65,8 @@ fc2 = nn.Linear(4,1)
 
 ```
 Conv1 = nn.Conv2d(3, 2, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), dilation=1)
+
+#上图所示的卷积层的含有参数量为：(in_channels * out_channels * kernel_size^2) + out_channels = 3 * 2 * 3^2 + 2 = 56。
 ```
 
 #### 卷积层中stride, padding, dilation参数意义：
