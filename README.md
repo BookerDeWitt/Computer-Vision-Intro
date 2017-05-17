@@ -247,9 +247,9 @@ h[:, :, 19:19+x.size()[2], 19:19+x.size()[3]].contiguous() #x.size[2], x.size[3]
 | Caffe | type: "Reshape"| 
 | Pytorch | torch.view, nn.PixelShuffle | 
 
-在不改变特征数值和特征总量的情况下改变特征图的形状：
+改变输入特征图的维度,而不改变其的具体数据：
 
-
+<p align="center"><img width="65%" src="pics/reshape-layer.png" /></p> 
 
 ```
 x = torch.randn(L*r*r, h, w)
@@ -257,6 +257,8 @@ y = x.view(L, r*h, r*w)
 or
 nn.PixelShuffle(r)
 ```
+
+此外有个flatten层是reshape层的特例，固定把一个输入的大小为n * c * h * w的特征图变成一个简单的向量，其大小为 n * (c*h*w) * 1 * 1。
 
 ## Split Layer
 | Framework | Code | 
@@ -281,7 +283,7 @@ nn.PixelShuffle(r)
 | Caffe | type: "Eltwise"| 
 | Pytorch | Tensor操作 | 
 
-Eltwise层的输入为两个大小一致的特征图，并对其进行按元素操作，它支持3种基本操作：PROD（点乘）， SUM（相加减） 和 MAX（取大值）。假设输入（bottom）为A和B，如果要实现element_wise的A+B，即A和B的对应元素相加，prototxt文件如下：
+Eltwise层将两个同样大小的特征图,按元素操作合并为一个，它支持3种合并操作：PROD（点乘）， SUM（相加减） 和 MAX（取大值）。假设输入（bottom）为A和B，如果要实现element_wise的A+B，即A和B的对应元素相加，prototxt文件如下：
 
 ```
 #Caffe prototxt
@@ -291,7 +293,7 @@ layer
   type: "Eltwise"
   bottom: "A"
   bottom: "B"
-  top: "diff"
+  top: "C"
   eltwise_param {
     operation: SUM
   }
