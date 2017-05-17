@@ -216,7 +216,7 @@ Batch Normalization解决的是[Internal Covariate Shift](https://arxiv.org/abs/
 
 <p align="center"><img width="60%" src="pics/LSTM-layer.png" /></p>
 
-一种解决长期记忆问题的RNN网络。[Understanding LSTM](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+一种可以有效学习长期依赖信息的RNN网络。[Understanding LSTM](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
 ## Crop Layer
 | Framework | Code | 
