@@ -222,7 +222,7 @@ Batch Normalization解决的是[Internal Covariate Shift](https://arxiv.org/abs/
 
 上式中的γ和β为可学习参数。
 
-针对CNN中的高维特征：如下图所示，假设一个特征图的维度为shape(128, 64, H, W)，即batchsize为128个，64种特征。在Batch Normalization过程中，首先针对128个图中每一种特征图，分别求所有其中像素的mean和variance，因为总共有64种特征，mean和variance的输出为长度为64的一维数组。接下来再利用mean和variance按照上面的公式对每一个像素进行归一化。[参考网站](http://www.jianshu.com/p/0312e04e4e83)
+针对CNN中的高维特征：如下图所示，假设一个特征图的维度为shape(128, 64, H, W)，即batchsize为128个，64种特征。在Batch Normalization过程中，首先针对128个图中每一种特征图，分别求所有其中像素的mean和variance，因为总共有64种特征，mean和variance的输出为长度为64的一维数组。接下来再利用mean和variance按照上面的公式对每一个像素进行归一化。([Tensorflow中的Batch Normalization](http://www.jianshu.com/p/0312e04e4e83))
 
 <p align="center"><img width="50%" src="pics/BN-way.png" /></p>
 
@@ -441,7 +441,7 @@ SoftmaxWithLoss层是在之前Softmax结果基础上，得到的一种损失函�
 
 为了解决Sigmoid函数产生的饱和性梯度消失问题，学者们又引入了交叉熵损失函数，主要用于二分类问题。该损失函数如下式所示,p<sub>n</sub>表示经过Sigmoid输出的分类概率，label<sub>n</sub>表示像素n的类别标标签真值。
 
-<p align="left"><img width="43%" src="pics/CrossEntropyLoss.png" /></p>
+<p align="left"><img width="45%" src="pics/CrossEntropyLoss.png" /></p>
 
 对比SoftmaxWithLoss可以看出，在二分类问题上CrossEntropyLoss与SoftmaxWithLoss等价。
 
