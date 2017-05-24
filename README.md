@@ -386,7 +386,7 @@ layer
 
 为了解决ReLU激活函数中神经元死亡的问题，提出的[改进版ReLU](https://arxiv.org/pdf/1502.01852.pdf)，其表达形式为：
 
-<p align="center"><img width="65%" src="pics/LReLU-equation.png" /></p>
+<p align="left"><img width="20%" src="pics/LReLU-equation.png" /></p>
 
 在Leaky-ReLU中，α为常量（通常定位0.25）；在P-ReLU中α为可学习参数，如下图所示。
 
@@ -408,7 +408,7 @@ layer
 
 softmax用于多分类问题，比如0-9的数字识别，共有10个输出，而且这10个输出的概率和加起来应该为1，所以可以用一个softmax操作归一化这10个输出。进一步一般化，假如共有m个输出，softmax的可以形式化表示为：
 
-<p align="center"><img width="50%" src="pics/softmax.png" /></p>
+<p align="left"><img width="20%" src="pics/softmax.png" /></p>
 
 上式表示在一个m类的分类问题中，Z<sub>n,i</sub>为网络对图像第n个像素的是否为第i个类别的预测结果，首先对每一个预测结果取exponential变成非负，然后除以所有项之和进行归一化。此时的结果可以解释成图像第n个像素属于类别i的概率。
 
@@ -428,7 +428,7 @@ softmax层往往用于多分类问题的最终输出层，如下图所示：
 
 SoftmaxWithLoss层是在之前Softmax结果基础上，得到的一种损失函数。假设k为图像第n个像素对应的类别真值，则整个图像(总共N个像素)的损失函数可以表示为：
 
-<p align="center"><img width="50%" src="pics/softmaxwithloss.png" /></p>
+<p align="left"><img width="20%" src="pics/softmaxwithloss.png" /></p>
 
 该函数形式也被称为log-likelihood cost（对数似然损失函数）。
 
@@ -441,7 +441,7 @@ SoftmaxWithLoss层是在之前Softmax结果基础上，得到的一种损失函�
 
 为了解决Sigmoid函数产生的饱和性梯度消失问题，学者们又引入了交叉熵损失函数，主要用于二分类问题。该损失函数如下式所示,p<sub>n</sub>表示经过Sigmoid输出的分类概率，label<sub>n</sub>表示像素n的类别标标签真值。
 
-<p align="center"><img width="50%" src="pics/CrossEntropyLoss.png" /></p>
+<p align="left"><img width="20%" src="pics/CrossEntropyLoss.png" /></p>
 
 对比SoftmaxWithLoss可以看出，在二分类问题上CrossEntropyLoss与SoftmaxWithLoss等价。
 
