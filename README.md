@@ -21,6 +21,13 @@
 - 网络在完成对batch中全部数据的前向运算后，才会进行BP运算更新网络权重；
 - 并不是每个层都使用的4维数据：Fully Connected Layer使用的就是二维数据(shape(N, D)), 3D Convolution Layer则使用五维数据(shape(N, C, D, H, W))。
 
+此外，深度学习训练过程中还涉及到三个概念：epoch、 iteration和batchsize。
+- batchsize：批大小。即每次训练在训练集中取batchsize个样本进行并行训练，更新一次网络权重；
+- iteration：1个iteration等于使用batchsize个样本训练一次；
+- epoch：1个epoch等于使用训练集中的全部样本训练一次，很多时网络训练需要多个epoch，每次采用随机的样本抽取顺序。
+
+举例：训练集有1000个样本，batchsize=10，那么：
+训练完整个样本集（1个epoch）需要100次iteration。
 
 ## Fully Connected Layer 全连接层
 | Framework | Code | 
@@ -209,6 +216,14 @@ RoI Pooling层在论文[Fast R-CNN](http://www.cv-foundation.org/openaccess/cont
 Max Pooling层的逆操作，其与Deconvlution层的区别如下图所示，Pooling层的输出是稀疏（sparse）的，后面往往要跟Convolution层来使特征图稠密化（dense）。
 
 <p align="center"><img width="50%" src="pics/diff_unpooling.PNG" /></p>
+
+下图为Deconvolution Layer介绍中图1网络中反卷积部分特征图的可视化结果：
+
+<p align="center"><img width="50%" src="pics/unpooling_deconv.PNG" /></p>
+
+其中(a)为输入图片，(b)(d)(f)(h)(j)依次为第1,2,3,4,5层反卷积层输出，剩下的为unpooling层输出。 可以认为：unpooling操作通过跟踪激活值的位置信息，对上层反卷积结果进行了一次放大，得到一个稀疏的图片。而deconvlution则有选择地“填充”放大后的稀疏的结果图。
+
+
 
 ## Batch Normalization Layer
 | Framework | Code | 
