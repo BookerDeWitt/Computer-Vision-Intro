@@ -17,9 +17,18 @@
 <p align="center"><img width="60%" src="pics/data-structure.png" /></p> 
 
 注意：
-- 网络对一个batch中每组数据的处理完全相同，因此Batch_Size N的增加不会影响网络的参数，但会增加对显存的使用量（用来存放更多batch的特征图）；
+- 网络对一个batch中每个图像的处理完全相同，因此Batch_Size N的增加不会影响网络的参数；
+- 由于batch中的图像是同时被处理的，并行化效率高，提高了内存利用率，但会增加对显存的使用量（用来存放更多batch的特征图）
 - 网络在完成对batch中全部数据的前向运算后，才会进行BP运算更新网络权重；
 - 并不是每个层都使用的4维数据：Fully Connected Layer使用的就是二维数据(shape(N, D)), 3D Convolution Layer则使用五维数据(shape(N, C, D, H, W))。
+
+下图解释了采用batchsize的意义：
+
+<p align="center"><img width="60%" src="pics/batchsize.png" /></p> 
+
+- 全批次（蓝色）：如果数据集比较小我们就采用全数据集，全数据集确定的方向能够更好地代表样本总体，从而更准确地朝向极值所在的方向。对于大的数据集我们不能使用全批次，因为一方面显存不允许，同时达到相同精度所需要的epoch数量越来越多。
+- 迷你批次（绿色）：选择一个适中的 Batch_Size 值。就是说我们选定一个batch的大小后，将会以batch的大小将数据输入深度学习的网络中，然后计算这个batch的所有样本的平均损失，即代价函数是所有样本的平均。
+- 随机（batch_size等于1的情况）（红色）： 每次修正方向以各自样本的梯度方向修正，横冲直撞各自为政，难以达到收敛。
 
 此外，深度学习训练过程中还涉及到三个概念：epoch、 iteration和batchsize。
 - batchsize：批大小。即每次训练在训练集中取batchsize个样本进行并行训练，更新一次网络权重；
