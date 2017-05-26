@@ -33,7 +33,7 @@
 此外，深度学习训练过程中还涉及到三个概念：epoch、 iteration和batchsize。
 - batchsize：批大小。即每次训练在训练集中取batchsize个样本进行并行训练，更新一次网络权重；
 - iteration：1个iteration等于使用batchsize个样本训练一次；
-- epoch：1个epoch等于使用训练集中的全部样本训练一次，很多时网络训练需要多个epoch，每次采用随机的样本抽取顺序。
+- epoch：1个epoch等于使用训练集中的全部样本训练一次，很多时网络训练需要多个epoch，每次采用随机的样本抽取顺序（seed）。
 
 举例：训练集有1000个样本，batchsize=10，那么：
 训练完整个样本集（1个epoch）需要100次iteration。
