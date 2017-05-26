@@ -2,3 +2,4 @@ softmaxwithloss£º
 \ell ( \widehat{y} ) =  \frac{-1}{N}  \sum_{n=1}^N log( \frac{exp(z_{n,k})}{ \sum_{j=1}^m exp(z_{n,j}) } )
 CrossEntropyLoss£º
 \ell ( \widehat{y} ) =  \frac{-1}{N}  \sum_{n=1}^N [label_nlog(p_n)+(1-label_n)log(1-p_n)]
+
