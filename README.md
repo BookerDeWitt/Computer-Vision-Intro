@@ -228,7 +228,7 @@ Max Pooling层的逆操作，其与Deconvlution层的区别如下图所示，Poo
 
 下图为Deconvolution Layer介绍中图1网络中反卷积部分特征图的可视化结果：
 
-<p align="center"><img width="50%" src="pics/unpooling_deconv.png" /></p>
+<p align="center"><img width="80%" src="pics/unpooling_deconv.png" /></p>
 
 其中(a)为输入图片，(b)(d)(f)(h)(j)依次为第1,2,3,4,5层反卷积层输出，剩下的为unpooling层输出。 可以认为：unpooling操作通过跟踪激活值的位置信息，对上层反卷积结果进行了一次放大，得到一个稀疏的图片。而deconvlution则有选择地“填充”放大后的稀疏的结果图。
 
